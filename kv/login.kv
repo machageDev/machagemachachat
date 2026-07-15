@@ -1,17 +1,47 @@
-<LoginScreen>:
-    name: "login"
+<LoginScreen>
 
-    FloatLayout:
+MDScreen:
 
-        canvas.before:
-            Color:
-                rgba: 1,1,1,1
-            Rectangle:
-                pos: self.pos
-                size: self.size
+    md_bg_color: 0.96, 0.97, 1, 1
 
-        Label:
-            text: "Login Screen"
-            font_size: "30sp"
-            color: 0,0,0,1
-            pos_hint: {"center_x": .5, "center_y": .5}
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "20dp"
+        padding: "30dp"
+        size_hint: .9, None
+        height: self.minimum_height
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+        MDLabel:
+            text: "MACHCHAT"
+            halign: "center"
+            font_style: "Headline"
+            bold: True
+
+        MDLabel:
+            text: "Welcome Back"
+            halign: "center"
+            theme_text_color: "Secondary"
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            icon_left: "email"
+            mode: "outlined"
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            password: True
+            icon_left: "lock"
+            mode: "outlined"
+
+        MDRaisedButton:
+            text: "LOGIN"
+            pos_hint: {"center_x": .5}
+            on_release: root.login()
+
+        MDTextButton:
+            text: "Create Account"
+            pos_hint: {"center_x": .5}
+            on_release: root.register()
