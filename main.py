@@ -1,11 +1,25 @@
-from tkinter.ttk import Label
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager
+from kivymd.app import MDApp
 
-from kivy.app import App
-from kivy.uix.label import Label
+from screens.splash_screen import SplashScreen
+from screens.login_screen import LoginScreen
 
 
-class MachChat(App):
+class MachChat(MDApp):
+
     def build(self):
-        return Label(text="Hello, MachChat!")
-    
-MachChat().run()    
+
+        Builder.load_file("kv/splash.kv")
+        Builder.load_file("kv/login.kv")
+
+        sm = ScreenManager()
+
+        sm.add_widget(SplashScreen(name="splash"))
+        sm.add_widget(LoginScreen(name="login"))
+
+        return sm
+
+
+if __name__ == "__main__":
+    MachChat().run()
