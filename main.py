@@ -14,10 +14,12 @@ class MachChat(MDApp):
 
         Builder.load_file("kv/splash.kv")
         Builder.load_file("kv/login.kv")
+        Builder.load_file("kv/register.kv")
 
         sm = ScreenManager()
         sm.add_widget(SplashScreen(name="splash"))
         sm.add_widget(LoginScreen(name="login"))
+        
 
         return MachChatScreenManager()
 
