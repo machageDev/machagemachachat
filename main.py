@@ -4,7 +4,7 @@ from kivy.uix.screenmanager import ScreenManager
 
 from screens.splash_screen import SplashScreen
 from screens.login_screen import LoginScreen
-
+from screens.screen_manager import MachChatScreenManager
 
 class MachChat(MDApp):
 
@@ -19,7 +19,7 @@ class MachChat(MDApp):
         sm.add_widget(SplashScreen(name="splash"))
         sm.add_widget(LoginScreen(name="login"))
 
-        return sm
+        return MachChatScreenManager()
 
 
 MachChat().run()
